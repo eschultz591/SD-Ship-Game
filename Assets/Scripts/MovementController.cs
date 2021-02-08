@@ -40,7 +40,6 @@ public class MovementController : MonoBehaviour
     int up, forward, right;
 
 
-
     // the mouse position which the ship needs to face
     // private Vector3 heading;
 
@@ -57,14 +56,25 @@ public class MovementController : MonoBehaviour
     // Updates when frame is finished 
     private void Update() 
     {
-        
-    }
-
-    // Updates once a physics frame finishes
-    private void FixedUpdate() 
-    {
         #region Keyboard based movement inputs
         
+
+        // mouse toggle
+        if(Input.GetButtonDown("MouseToggle"))
+        {
+            Debug.Log("mouse control " +mouseControl);
+            Debug.Log("lock state " +Cursor.lockState);
+
+            Cursor.lockState = mouseControl?CursorLockMode.Confined:CursorLockMode.Locked;
+
+            mouseControl = !mouseControl;
+            Cursor.visible = !mouseControl;
+
+
+        }
+
+
+
         // this set handles one input directions
         if(Input.GetAxis("Forward") > 0)
         {
@@ -110,25 +120,35 @@ public class MovementController : MonoBehaviour
         //Debug.Log("screen mouse pos" + Camera.main.ScreenToViewportPoint( Input.mousePosition));
 
 
-        Debug.Log(Input.GetAxis("Mouse X"));
+        //Debug.Log(Input.GetAxis("Mouse X"));
 
-
-        if(Input.GetAxis("Mouse X") != 0)
+        if(mouseControl)
         {
-            rb.AddTorque(-transform.forward * rotSpeed * Input.GetAxis("Mouse X"));
+            if(Input.GetAxis("Mouse X") != 0)
+            {
+                rb.AddTorque(-transform.forward * rotSpeed * Input.GetAxis("Mouse X"));
+            }
+
+            if(Input.GetAxis("Mouse Y") != 0)
+            {
+                rb.AddTorque(-transform.right * rotSpeed * Input.GetAxis("Mouse Y"));
+            }
+
+            // test script for stopping rotation and velocity
+            if(Input.GetButtonDown("Stop"))
+            {
+                rb.velocity.Set(0f,0f,0f);
+                rb.angularVelocity.Set(0f,0f,0f);
+            }
         }
 
-        if(Input.GetAxis("Mouse Y") != 0)
+        if(!mouseControl)
         {
-            rb.AddTorque(-transform.right * rotSpeed * Input.GetAxis("Mouse Y"));
+            // here you will now use the mosue control for interaction with the world
+            // the cursor should make itself known now and it will be bound to the window
+            // will probably use a raycast from the camera for interaction with the world
         }
 
-        // test script for stopping rotation and velocity
-        if(Input.GetButtonDown("Stop"))
-        {
-            rb.velocity.Set(0f,0f,0f);
-            rb.angularVelocity.Set(0f,0f,0f);
-        }
 
 
 
@@ -141,11 +161,13 @@ public class MovementController : MonoBehaviour
 
     }
 
-
-
-    private void Rotate(int direction, int axis)
+    // Updates once a physics frame finishes
+    private void FixedUpdate() 
     {
-        
+
     }
+
+
+
 
 }
