@@ -1,2 +1,5 @@
 Base path: '/home/eschultz591/Unity/Hub/Editor/2020.2.3f1/Editor/Data', plugins path '/home/eschultz591/Unity/Hub/Editor/2020.2.3f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: shutdown
+
+Quitting shader compiler process
