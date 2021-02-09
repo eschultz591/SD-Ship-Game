@@ -1,0 +1,23 @@
+
+
+Notes for interactable objects:
+    the plan for these guys is to have what we need in a separate script that does not really have much asides from what we need to know
+    
+    As of writing this, I am going with this game being an educational space game. We can theme it around STEM Cringe so you can find cool rocks and stuff and analize them
+    
+    In that case, all you really need to know are specific facts about the object. This is the list that I am going with right now:
+        Name
+        Classification (like what type of rock it is or something)
+        Weight
+        Resistivity
+        Density
+
+    The idea is that your ship will have some sort of mining rocket and a chemical laser, so maybe specific objects resist these things
+
+    with working with the list I have made right now, the interactable objects "system" will be an empty script containing variables for these things. When the parent object is created, they will assign these values and anything they dont have an answer for will be written as N/A
+
+
+
+
+Notes for map building:
+    for bulding the maps we really only need two classifcations of map objects; movable (like some floating asteroid), and solid (just the standard map). 

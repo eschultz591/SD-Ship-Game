@@ -216,20 +216,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &963194225 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2168876551547327504, guid: ab9196cf5e9484fb5999113706f776d0, type: 3}
-  m_PrefabInstance: {fileID: 2168876552506194273}
-  m_PrefabAsset: {fileID: 0}
---- !u!45 &963194226
-Skybox:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_CustomSkybox: {fileID: 0}
 --- !u!1001 &2168876552506194273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,18 +223,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2168876551547327506, guid: ab9196cf5e9484fb5999113706f776d0, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2168876551943773714, guid: ab9196cf5e9484fb5999113706f776d0, type: 3}
-      propertyPath: m_Drag
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2168876551943773714, guid: ab9196cf5e9484fb5999113706f776d0, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2168876551943773715, guid: ab9196cf5e9484fb5999113706f776d0, type: 3}
       propertyPath: m_Name
       value: Player_Ship
