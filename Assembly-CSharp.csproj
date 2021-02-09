@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\Environment\InteractableObject.cs" />
      <Compile Include="Assets\Scripts\Generic\LifeSystem.cs" />
      <Compile Include="Assets\Scripts\Environment\Debris\TestDebris.cs" />
+     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
      <Compile Include="Assets\Scripts\Player\ScannerScript.cs" />
      <Compile Include="Assets\Scripts\Player\ObjectLog.cs" />
     <Reference Include="UnityEngine">

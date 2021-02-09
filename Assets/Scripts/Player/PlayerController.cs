@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     private ScannerScript scanner;
+    private MovementController mc;
 
     // by speed its really acceleration
     private float mainThrustSpeed = 20.0f;
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour
         //heading = new Vector3();
 
         scanner = gameObject.GetComponent<ScannerScript>();
-
+        mc = gameObject.GetComponent<MovementController>();
         Cursor.lockState = CursorLockMode.Locked;
 
 
@@ -87,41 +88,48 @@ public class PlayerController : MonoBehaviour
         // this set handles one input directions
         if(Input.GetAxis("Forward") > 0)
         {
-            rb.AddForce(transform.up * mainThrustSpeed);
+            mc.forward = 1;
+            //rb.AddForce(transform.up * mainThrustSpeed);
         }
         if(Input.GetAxis("Forward") < 0)
         {
-            rb.AddForce(-transform.up * auxThrustSpeed);
+            mc.forward = -1;
+
+            //rb.AddForce(-transform.up * auxThrustSpeed);
         }
 
         if(Input.GetAxis("Right") > 0)
         {
-            rb.AddForce(transform.right * auxThrustSpeed);
+            mc.right = 1;
+            //rb.AddForce(transform.right * auxThrustSpeed);
         }
         if(Input.GetAxis("Right") < 0)
         {
-            rb.AddForce(-transform.right * auxThrustSpeed);
+            mc.right = -1;
+            //rb.AddForce(-transform.right * auxThrustSpeed);
         }
 
         if(Input.GetAxis("Up") > 0)
         {
-            rb.AddForce(transform.forward * auxThrustSpeed);
+            mc.up = 1;
+            //rb.AddForce(transform.forward * auxThrustSpeed);
         }
         if(Input.GetAxis("Up") < 0)
         {
-            rb.AddForce(-transform.forward * auxThrustSpeed);
+            mc.up = -1;
+            //rb.AddForce(-transform.forward * auxThrustSpeed);
         }
 
         if(Input.GetAxis("Roll") > 0)
         {
-            rb.AddTorque(transform.up * rotSpeed);
+            mc.roll = 1;
+           //rb.AddTorque(transform.up * rotSpeed);
         }
         if(Input.GetAxis("Roll") < 0)
         {
-            rb.AddTorque(-transform.up * rotSpeed);
+            mc.roll = -1;
+            //rb.AddTorque(-transform.up * rotSpeed);
         }
-
-        
         #endregion
 
 
@@ -151,21 +159,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
+        // used fixed update over update since this is related to a raycast
         if(!mouseControl)
         {
             if(Input.GetButtonDown("LeftMouse"))
             {
+                scanner.ScanObject();
                 // here you will now use the mosue control for interaction with the world
                 // the cursor should make itself known now and it will be bound to the window
                 // will probably use a raycast from the camera for interaction with the world
-
-
             }
 
-        }
-
-
-
+        }       
 
         #endregion
 
@@ -176,9 +182,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // Updates once a physics frame finishes
     private void FixedUpdate() 
     {
+
+
 
     }
 

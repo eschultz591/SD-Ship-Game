@@ -34,6 +34,10 @@ public class InteractableObject : MonoBehaviour
     }
 
 
+    public string GetName()
+    {
+        return _sciName;
+    }
     
 
 

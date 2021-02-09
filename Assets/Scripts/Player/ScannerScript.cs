@@ -11,7 +11,7 @@ public class ScannerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
     }
@@ -21,11 +21,14 @@ public class ScannerScript : MonoBehaviour
 
     public void ScanObject()
     {
+        Debug.Log("am scanning");
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit ) && hit.transform.tag == "InteractibleDebris")
         {
+            Debug.Log("this is the name" + hit.transform.GetComponent<InteractableObject>().GetName());
+
         }
     }
 }
