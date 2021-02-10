@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: 2168876551943773717}
   - component: {fileID: 2168876551943773714}
   - component: {fileID: 2168876551943773721}
+  - component: {fileID: 1576027964}
+  - component: {fileID: 1576027965}
   m_Layer: 0
   m_Name: Player_Ship
   m_TagString: Player
@@ -224,6 +226,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498ee67e468b1eaed9d5b19e86e71db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1576027964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168876551943773715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e7631f85c706860bea662ad3f807df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1576027965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168876551943773715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0622e5a52b6a91d1993dfb966fda503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  right: 0
+  up: 0
+  forward: 0
+  roll: 0
+  mouseX: 0
+  mouseY: 0
 --- !u!1 &2381696199684870748
 GameObject:
   m_ObjectHideFlags: 0

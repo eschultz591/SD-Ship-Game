@@ -67,13 +67,12 @@ public class PlayerController : MonoBehaviour
     private void Update() 
     {
         #region Keyboard based movement inputs
-        
 
         // mouse toggle
         if(Input.GetButtonDown("MouseToggle"))
         {
-            Debug.Log("mouse control " +mouseControl);
-            Debug.Log("lock state " +Cursor.lockState);
+            Debug.Log("mouse control " + mouseControl);
+            Debug.Log("lock state " + Cursor.lockState);
 
             Cursor.lockState = mouseControl?CursorLockMode.Confined:CursorLockMode.Locked;
 
@@ -89,47 +88,55 @@ public class PlayerController : MonoBehaviour
         if(Input.GetAxis("Forward") > 0)
         {
             mc.forward = 1;
-            //rb.AddForce(transform.up * mainThrustSpeed);
         }
         if(Input.GetAxis("Forward") < 0)
         {
             mc.forward = -1;
-
-            //rb.AddForce(-transform.up * auxThrustSpeed);
+        }
+        if(Input.GetAxis("Forward") == 0)
+        {
+            mc.forward = -0;
         }
 
         if(Input.GetAxis("Right") > 0)
         {
             mc.right = 1;
-            //rb.AddForce(transform.right * auxThrustSpeed);
         }
         if(Input.GetAxis("Right") < 0)
         {
             mc.right = -1;
-            //rb.AddForce(-transform.right * auxThrustSpeed);
+        }
+        if(Input.GetAxis("Right") == 0)
+        {
+            mc.right = 0;
         }
 
         if(Input.GetAxis("Up") > 0)
         {
             mc.up = 1;
-            //rb.AddForce(transform.forward * auxThrustSpeed);
         }
         if(Input.GetAxis("Up") < 0)
         {
             mc.up = -1;
-            //rb.AddForce(-transform.forward * auxThrustSpeed);
+        }
+        if(Input.GetAxis("Up") == 0)
+        {
+            mc.up = 0;
         }
 
         if(Input.GetAxis("Roll") > 0)
         {
             mc.roll = 1;
-           //rb.AddTorque(transform.up * rotSpeed);
         }
         if(Input.GetAxis("Roll") < 0)
         {
             mc.roll = -1;
-            //rb.AddTorque(-transform.up * rotSpeed);
         }
+        if(Input.GetAxis("Roll") == 0)
+        {
+            mc.roll = 0;
+        }
+
         #endregion
 
 
@@ -143,12 +150,20 @@ public class PlayerController : MonoBehaviour
         {
             if(Input.GetAxis("Mouse X") != 0)
             {
-                rb.AddTorque(-transform.forward * rotSpeed * Input.GetAxis("Mouse X"));
+                mc.mouseX = 1;
+            }
+            if(Input.GetAxis("Mouse X") == 0)
+            {
+                mc.mouseX = 0;
             }
 
             if(Input.GetAxis("Mouse Y") != 0)
             {
-                rb.AddTorque(-transform.right * rotSpeed * Input.GetAxis("Mouse Y"));
+                mc.mouseY = 1;
+            }
+            if(Input.GetAxis("Mouse Y") == 0)
+            {
+                mc.mouseY = 0;
             }
 
             // test script for stopping rotation and velocity
@@ -160,7 +175,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        // used fixed update over update since this is related to a raycast
         if(!mouseControl)
         {
             if(Input.GetButtonDown("LeftMouse"))
@@ -169,6 +183,12 @@ public class PlayerController : MonoBehaviour
                 // here you will now use the mosue control for interaction with the world
                 // the cursor should make itself known now and it will be bound to the window
                 // will probably use a raycast from the camera for interaction with the world
+            }
+
+            // test stuff to check if an object is in the log properly
+            if(Input.GetButtonDown("Stop"))
+            {
+                scanner.CheckLog();
             }
 
         }       
@@ -182,12 +202,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void FixedUpdate() 
-    {
 
-
-
-    }
 
 
     

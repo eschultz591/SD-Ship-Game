@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class ScannerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private ObjectLog log;
+
+    private void Awake() 
     {
+        log = gameObject.GetComponent<ObjectLog>();
         
     }
 
@@ -27,8 +24,26 @@ public class ScannerScript : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit ) && hit.transform.tag == "InteractibleDebris")
         {
-            Debug.Log("this is the name" + hit.transform.GetComponent<InteractableObject>().GetName());
-
+            log.AddObject(hit.transform.GetComponent<InteractableObject>().GetName(),
+                          hit.transform.GetComponent<InteractableObject>().GetClassification(),
+                          hit.transform.GetComponent<InteractableObject>().GetComposition(),
+                          hit.transform.GetComponent<InteractableObject>().GetDensity(),
+                          hit.transform.GetComponent<InteractableObject>().GetResistivity());
         }
+    }
+
+
+    public void CheckLog()
+    {
+
+        RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit ) && hit.transform.tag == "InteractibleDebris")
+            {
+                List<object> testList = log.FindLogObject(hit.transform.GetComponent<InteractableObject>().GetName());
+                Debug.Log("found it here is its composition" + testList[2]);
+            }
+
     }
 }

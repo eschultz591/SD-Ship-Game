@@ -34,11 +34,21 @@ public class MovementController : MonoBehaviour
 
     private void FixedUpdate() 
     {
+        #region Keyboard Controls
+        // force application based on the keyboard inputs from PlayerController
         if(right == 1)
+        {
+            rb.AddForce(transform.right * auxThrustSpeed);
+        }
+        if(right == -1)
+        {
+            rb.AddForce(-transform.right * auxThrustSpeed);
+        }
+        if(forward == 1)
         {
             rb.AddForce(transform.up * mainThrustSpeed);
         }
-        if(right == -1)
+        if(forward == -1)
         {
             rb.AddForce(-transform.up * mainThrustSpeed);
         }
@@ -60,6 +70,25 @@ public class MovementController : MonoBehaviour
         {
             rb.AddTorque(-transform.up * rotSpeed);
         }
-        
+        #endregion
+
+
+        #region Mouse Controls
+        // mouse controls from input in PlayerControllers
+        if(mouseX == 1)
+        {
+            rb.AddTorque(-transform.forward * auxThrustSpeed * Input.GetAxis("Mouse X"));
+        }
+        if(mouseY == 1)
+        {
+            rb.AddTorque(-transform.right * auxThrustSpeed * Input.GetAxis("Mouse Y"));
+        }
+        #endregion
+
+
+        // max speed limiter
+        if (rb.velocity.magnitude > maxSpeed)
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+
     }
 }

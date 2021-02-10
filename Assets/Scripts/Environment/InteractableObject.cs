@@ -38,7 +38,24 @@ public class InteractableObject : MonoBehaviour
     {
         return _sciName;
     }
-    
-
-
+    public string GetClassification()
+    {
+        return _classification;
+    }
+    public string GetComposition()
+    {
+        return _composition;
+    }
+    public float GetWeight()
+    {
+        return _weight;
+    }
+    public float GetDensity()
+    {
+        return _density;
+    }
+    public double GetResistivity()
+    {
+        return _resistivity;
+    }
 }

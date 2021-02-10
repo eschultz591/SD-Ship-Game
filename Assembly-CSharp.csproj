@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\Player\MovementController.cs" />
      <Compile Include="Assets\Scripts\Player\ScannerScript.cs" />
      <Compile Include="Assets\Scripts\Player\ObjectLog.cs" />
+     <Compile Include="Assets\Scripts\Environment\Debris\TestDebris2.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/eschultz591/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
