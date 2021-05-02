@@ -10,7 +10,7 @@ public class MovementController : MonoBehaviour
     private Rigidbody rb;
 
     // by speed its really acceleration
-    private float mainThrustSpeed = 20.0f;
+    private float mainThrustSpeed = 40.0f;
     // again, more like acceleration
     // these this is for the force application at specific places
     // for turning and going backwards
@@ -22,7 +22,7 @@ public class MovementController : MonoBehaviour
     
     // the maximum speed that the ship can go
     // might want to set a maxForewardSpeed and maxSideSpeed
-    private float maxSpeed = 100.0f;
+    private float maxSpeed = 1000.0f;
 
 
     private void Awake() 

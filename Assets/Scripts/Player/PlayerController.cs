@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,15 +33,13 @@ public class PlayerController : MonoBehaviour
     
     // the maximum speed that the ship can go
     // might want to set a maxForewardSpeed and maxSideSpeed
-    private float maxSpeed = 100.0f;
+    //private float maxSpeed = 100.0f;
     
 
     // might not need this
     // here in case we want to have something for toggling mouse movement
     private bool mouseControl = true;
 
-
-    int up, forward, right;
 
 
     // the mouse position which the ship needs to face
@@ -175,6 +174,10 @@ public class PlayerController : MonoBehaviour
         }
 
 
+
+
+
+
         if(!mouseControl)
         {
             if(Input.GetButtonDown("LeftMouse"))
@@ -186,19 +189,19 @@ public class PlayerController : MonoBehaviour
             }
 
             // test stuff to check if an object is in the log properly
-            if(Input.GetButtonDown("Stop"))
-            {
-                scanner.CheckLog();
-            }
+
 
         }       
-
+        if(Input.GetButtonDown("Stop"))
+        {
+            scanner.CheckLog();
+        }
         #endregion
 
 
     // max speed limiter
-    if (rb.velocity.magnitude > maxSpeed)
-        rb.velocity = rb.velocity.normalized * maxSpeed;
+    //if (rb.velocity.magnitude > maxSpeed)
+    //    rb.velocity = rb.velocity.normalized * maxSpeed;
 
     }
 

@@ -8,13 +8,14 @@ public class InteractableObject : MonoBehaviour
 
     // stats for what an object might need to expose 
     // use sciName over name since Object.name exists
+    [SerializeField]
     private string _sciName;
     private string _classification;
     private string _composition;
     private float _weight;
     private double _resistivity;
     private float _density;
-
+    private int _key;
 
     private void Start() 
     {
@@ -22,7 +23,7 @@ public class InteractableObject : MonoBehaviour
     }
 
 
-    public void GiveExposedVariables(string sciName, string classification, string composition, float weight, double resistivity, float density)
+    public void GiveExposedVariables(string sciName, string classification, string composition, float weight, double resistivity, float density, int key)
     {
         _sciName = sciName;
         _classification = classification;
@@ -30,7 +31,7 @@ public class InteractableObject : MonoBehaviour
         _weight = weight;
         _resistivity = resistivity;
         _density = density;
-
+        _key = key;
     }
 
 
@@ -57,5 +58,9 @@ public class InteractableObject : MonoBehaviour
     public double GetResistivity()
     {
         return _resistivity;
+    }
+    public int GetKey()
+    {
+        return _key;
     }
 }
